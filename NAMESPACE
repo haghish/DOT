@@ -3,3 +3,4 @@
 export(dot)
 import(V8)
 importFrom(tools,file_ext)
+importFrom(utils,packageVersion)

@@ -23,6 +23,14 @@ DOT (graph description language) is a simplified and intuitive plain text graphi
 #create a simple DOT graph and load it in RStudio
 dot("digraph {A -> B;}")
 
+#to produce a dynamic document including a diagram in 'rmarkdown'
+\dontrun{
+```{r echo=FALSE, results='asis'}
+library(DOT)
+dot("digraph {A -> B;}", return = "cat")
+```}
+
+
 #create a DOT graph and export a SVG file to the working directory
 dot("digraph {A -> B; B -> C; B -> D;}", file = "myfile.svg")
 
@@ -31,10 +39,6 @@ dot("digraph {A -> B; B -> C; B -> D;}", file = "myfile.ps")
 
 #create a DOT graph and save the script in a string object in R
 myString <- dot("digraph {A -> B;}", return = "verbatim")
-
-#while working in Rmarkdown or RHTML to produce a dynamic document use:
-dot("digraph {A -> B;}", return = "cat")
-
 }
 \author{
 E. F. Haghish \cr

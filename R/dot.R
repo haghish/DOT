@@ -20,8 +20,17 @@
 #' \email{haghish@imada.sdu.dk}
 #'
 #' @examples
+
 #' #create a simple DOT graph and load it in RStudio
 #' dot("digraph {A -> B;}")
+#'
+#' #to produce a dynamic document including a diagram in 'rmarkdown'
+#' \dontrun{
+#' ```{r echo=FALSE, results='asis'}
+#' library(DOT)
+#' dot("digraph {A -> B;}", return = "cat")
+#' ```}
+#'
 #'
 #' #create a DOT graph and export a SVG file to the working directory
 #' dot("digraph {A -> B; B -> C; B -> D;}", file = "myfile.svg")
@@ -31,13 +40,13 @@
 #'
 #' #create a DOT graph and save the script in a string object in R
 #' myString <- dot("digraph {A -> B;}", return = "verbatim")
-#'
-#' #while working in Rmarkdown or RHTML to produce a dynamic document use:
-#' dot("digraph {A -> B;}", return = "cat")
-#'
+
+
+
 #' @export
 #' @import V8
 #' @importFrom tools file_ext
+#' @importFrom utils packageVersion
 
 dot <- function(DOT, file = NULL, return = NULL) {
 
