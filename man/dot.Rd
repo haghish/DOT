@@ -2,16 +2,16 @@
 % Please edit documentation in R/dot.R
 \name{dot}
 \alias{dot}
-\title{Render and Export DOT Plots in R}
+\title{Render and Export DOT Plots in Rdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAMElEQVR42mNgIAXY2Nj8x8cHC8AwMl9XVxe3QqwKcJmIVwFWhehW4LQSXQCnm3ABAHD6MDrmRgfrAAAAAElFTkSuQmCC}
 \usage{
-dot(DOT, file = NULL, return = NULL)
+dot(DOT, file = NULL, return = "auto")
 }
 \arguments{
 \item{DOT}{DOT (graph description language) is a simplified and intuitive plain text graphical language.This argument takes a string containing the DOT script. It is advised to use single quotation mark for the DOT string since the script often includes double quotations which can crash the function.}
 
 \item{file}{defines the file name for exporting the graph. The acceptable file extensions are \code{"ps"} for PostScript and \code{"svg"} for SVG format (see examples below).}
 
-\item{return}{specifies if PS or SVG script should be printed in R console. The acceptable values are \code{"verbatim"} and \code{"cat"}. \code{"verbatim"} returns a single string which is assignable to an object. \code{"cat"} returns a concatenated string which is printed in multiple lines in the R console. Use the \code{"cat"} to append SVG graphics directly in dynamic document packages such as \code{knitr, Rmarkdown}, etc.}
+\item{return}{specifies if PS or SVG script should be printed in R console. The acceptable values are \code{"auto"}, \code{"cat"}, \code{"verbatim"}, and \code{NULL}. The default value is \code{"auto"} which does not return anything unless the \code{dot()} function is called within \code{'knitr'} or \code{'rmarkdown'} packages, which require concatenated graphical script. The \code{"cat"} returns concatenated PS or SVG script, printed in multiple lines in the R console. The \code{"verbatim"} returns a single string which is assignable to an object.}
 }
 \value{
 By default, the function only renders and loads the DOT plot in RStudio but does not return any PS or SVG script. If the \code{return} argument is specified, it returns PostScript or SVG script. Note that for assigning the script returned from \code{dot()} to an object, only \code{"verbatim"} value can be used to create a string object.
@@ -50,4 +50,9 @@ Department of Mathematics and Computer Science \cr
 University of Southern Denmark \cr
 \email{haghish@imada.sdu.dk}
 }
+\keyword{diagram}
+\keyword{graphics}
+\keyword{literate}
+\keyword{plot}
+\keyword{visualization}
 
