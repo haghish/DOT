@@ -2,12 +2,12 @@
 % Please edit documentation in R/dot.R
 \name{dot}
 \alias{dot}
-\title{Render and Export DOT Plots in Rdata:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAMElEQVR42mNgIAXY2Nj8x8cHC8AwMl9XVxe3QqwKcJmIVwFWhehW4LQSXQCnm3ABAHD6MDrmRgfrAAAAAElFTkSuQmCC}
+\title{Render and Export DOT Graphs in R}
 \usage{
 dot(DOT, file = NULL, return = "auto")
 }
 \arguments{
-\item{DOT}{DOT (graph description language) is a simplified and intuitive plain text graphical language.This argument takes a string containing the DOT script. It is advised to use single quotation mark for the DOT string since the script often includes double quotations which can crash the function.}
+\item{DOT}{This argument takes a string containing the DOT script. It is advised to use single quotation mark for the DOT string since the script often includes double quotations which can crash the function.}
 
 \item{file}{defines the file name for exporting the graph. The acceptable file extensions are \code{"ps"} for PostScript and \code{"svg"} for SVG format (see examples below).}
 
@@ -17,7 +17,7 @@ dot(DOT, file = NULL, return = "auto")
 By default, the function only renders and loads the DOT plot in RStudio but does not return any PS or SVG script. If the \code{return} argument is specified, it returns PostScript or SVG script. Note that for assigning the script returned from \code{dot()} to an object, only \code{"verbatim"} value can be used to create a string object.
 }
 \description{
-DOT (graph description language) is a simplified and intuitive plain text graphical language. This package not only renders the DOT markup language in R, but also provides the possibility to export the graphs in PostScript and SVG (Scalable Vector Graphics) formats. The DOT package also supports literate programming packages such as Knitr and R2HTML. Visit \url{http://haghish.com/dot} for downloading examples of creating algorithms and several graphs for \code{Rmarkdown} and \code{R HTML} to generate dynamic procedural graphs in dynamic documents using the \code{DOT} package.
+Graph Description Language (DOT) is a simplified and intuitive plain text graphical language. The \code{dot()} function renders the DOT markup language in R and also provides the possibility to export the graphs in PostScript and SVG (Scalable Vector Graphics) formats. In addition, it supports literate programming packages such as Knitr and R2HTML. Visit \url{http://haghish.com/dot} for downloading examples of creating algorithms and several graphs for \code{Rmarkdown} and \code{R HTML} to generate dynamic procedural graphs in dynamic documents using the \code{DOT} package.
 }
 \examples{
 #create a simple DOT graph and load it in RStudio

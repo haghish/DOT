@@ -1,16 +1,14 @@
 Package: DOT
 Type: Package
-Title: Render and Export DOT (Graph Description Language) in PostScript and SVG
+Title: Render and Export DOT Graphs in R
 Version: 0.1
 Date: 2016-04-02
 Author: E. F. Haghish
 Maintainer: E. F. Haghish <haghish@imbi.uni-freiburg.de>
-Description: The package renders DOT (graph description language) markup, which is
-    a simplified and intuitive plain text graphical language. This package not only
-    renders the DOT language in R, but also provides the possibility to export the
-    graphs in PostScript and SVG (Scalable Vector Graphics) formats. The DOT package
-	also supports literate programming packages such as 'knitr', 'rmarkdown', and
-	'R2HTML' seemlessly.
+Description: Renders DOT diagram markup language in R and also provides the possibility to
+    export the graphs in PostScript and SVG (Scalable Vector Graphics) formats.
+    In addition, it supports literate programming packages such as 'knitr' and
+    'rmarkdown'.
 Imports: V8 (>= 1.0), tools
 Suggests: knitr, rmarkdown
 NeedsCompilation: no
