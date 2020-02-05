@@ -147,7 +147,7 @@ dot <- function(DOT, file = NULL, return = "auto") {
     write(content, file=dotFile, append=TRUE)
 
     viewer <- getOption("viewer")
-    if (!is.null(viewer)) {
+    if (!is.null(viewer) & return == "auto") {
         viewer(dotFile)
     }
     #else {
