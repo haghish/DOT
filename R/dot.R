@@ -50,7 +50,7 @@
 #' @importFrom tools file_ext
 #' @importFrom utils packageVersion
 
-dot <- function(DOT, file = NULL, return = "auto") {
+dot <- function(DOT, file = NULL, return = "auto", display = TURE) {
 
     # ---------------------------------------------------------
     # SYNTAX PROCESSING
@@ -147,7 +147,7 @@ dot <- function(DOT, file = NULL, return = "auto") {
     write(content, file=dotFile, append=TRUE)
 
     viewer <- getOption("viewer")
-    if (!is.null(viewer)) {
+    if (!is.null(viewer) & display) {
         viewer(dotFile)
     }
     #else {
