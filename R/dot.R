@@ -1,5 +1,5 @@
 #' @title Render and Export DOT Graphs in R
-#' @usage dot(DOT, file = NULL, return = "auto")
+#' @usage dot(DOT, file = NULL, return = "auto", display = TRUE)
 #'
 #' @keywords graphics plot diagram literate visualization
 #' @description Graph Description Language (DOT) is a simplified and intuitive plain text graphical language. The \code{dot()} function renders the DOT markup language in R and also provides the possibility to export the graphs in PostScript and SVG (Scalable Vector Graphics) formats. In addition, it supports literate programming packages such as Knitr and R2HTML. Visit \url{http://haghish.com/dot} for downloading examples of creating algorithms and several graphs for \code{Rmarkdown} and \code{R HTML} to generate dynamic procedural graphs in dynamic documents using the \code{DOT} package.
@@ -7,6 +7,8 @@
 #' @param DOT This argument takes a string containing the DOT script. It is advised to use single quotation mark for the DOT string since the script often includes double quotations which can crash the function.
 #'
 #' @param file defines the file name for exporting the graph. The acceptable file extensions are \code{"ps"} for PostScript and \code{"svg"} for SVG format (see examples below).
+#'
+#' @param display whether to display the DOT plot if the viewer is available. The default is \code{TRUE}.
 #'
 #' @param return specifies if PS or SVG script should be printed in R console. The acceptable values are \code{"auto"}, \code{"cat"}, \code{"verbatim"}, and \code{NULL}. The default value is \code{"auto"} which does not return anything unless the \code{dot()} function is called within \code{'knitr'} or \code{'rmarkdown'} packages, which require concatenated graphical script. The \code{"cat"} returns concatenated PS or SVG script, printed in multiple lines in the R console. The \code{"verbatim"} returns a single string which is assignable to an object.
 #'
@@ -41,7 +43,7 @@
 #' dot("digraph {A -> B; B -> C; B -> D;}", file = "myfile.ps")
 #'
 #' #create a DOT graph and save the script in a string object in R
-#' myString <- dot("digraph {A -> B;}", return = "verbatim")
+#' myString <- dot("digraph {A -> B;}", return = "verbatim", display = FALSE)
 
 
 
@@ -50,7 +52,7 @@
 #' @importFrom tools file_ext
 #' @importFrom utils packageVersion
 
-dot <- function(DOT, file = NULL, return = "auto", display = TURE) {
+dot <- function(DOT, file = NULL, return = "auto", display = TRUE) {
 
     # ---------------------------------------------------------
     # SYNTAX PROCESSING
@@ -130,6 +132,7 @@ dot <- function(DOT, file = NULL, return = "auto", display = TURE) {
 
     tempDir <- tempfile()
     dir.create(tempDir)
+    on.exit(unlink(tempDir, recursive = TRUE))
     dotFile <- file.path(tempDir, "dot.svg")
     file.create(dotFile)
     JS <- system.file("lib/viz.js", package = "DOT")
