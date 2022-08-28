@@ -2,7 +2,6 @@
 
 <a href="https://github.com/haghish/DOT"><img src='man/figures/logo.PNG' align="right" height="200" /></a>
 
-- - -
 
 # DOT
 
